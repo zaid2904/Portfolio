@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Featured project demos from Siddiqui Zaid's portfolio, including live previews and source links for recent web applications."
+    />
+    <meta name="author" content="Siddiqui Zaid" />
+    <meta
+      name="robots"
+      content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
+    />
+    <meta name="theme-color" content="#0b1120" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Projects Showcase | Siddiqui Zaid" />
+    <meta
+      property="og:description"
+      content="Browse featured project demos from Siddiqui Zaid's portfolio with live previews and direct source links."
+    />
+    <meta property="og:site_name" content="Siddiqui Zaid Portfolio" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Projects Showcase | Siddiqui Zaid" />
+    <meta
+      name="twitter:description"
+      content="Browse featured project demos from Siddiqui Zaid's portfolio with live previews and direct source links."
+    />
+    <title>Projects Showcase | Siddiqui Zaid</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="yt.css" />
+  </head>
+  <body>
+    <header class="sticky-nav">
+      <div class="container nav-inner">
+        <a class="brand" href="#projects" aria-label="Projects showcase home">
+          <span class="brand-mark">SZ</span>
+          <span>Projects Showcase</span>
+        </a>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a class="nav-link" href="#projects">Live Projects Demo</a>
+          <a class="nav-link" href="./index.html">
+            <-------Go Back to Main portfolio</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- <section class="container" id="exploring">
+			<div class="section-head">
+				<div>
+					<h2>Exploring</h2>
+					<p>Areas I'm currently learning and experimenting with.</p>
+				</div>
+			</div>
+
+			<div class="projects-grid" style="grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.75rem; padding-bottom: 1.5rem;">
+				<span class="tag">DevOps</span>
+				<span class="tag">Cyber Security</span>
+				<span class="tag">Networking</span>
+				<span class="tag">AI / ML</span>
+			</div>
+		</section> -->
+      <section class="container" id="projects">
+        <div class="section-head" id="featured">
+          <div>
+            <h2>Featured Projects</h2>
+            <p>
+              2 cards per row on desktop, 1 on mobile, with lazy-loaded
+              previews.
+            </p>
+          </div>
+          <p>Hover a card, then click the image or play button to preview.</p>
+        </div>
+
+        <div class="projects-grid" id="projects-grid"></div>
+      </section>
+    </main>
+
+    <script>
+      const projects = [
+        {
+          title: "Frontend Project",
+          youtubeId: "7vAkl6Xxpdk",
+          thumbnail: "https://img.youtube.com/vi/7vAkl6Xxpdk/hqdefault.jpg",
+          tech: ["React", "TypeScript", "Laravel"],
+          github: "https://www.sarvajanikmedicaltrust.com/",
+        },
+        {
+          title: "E-commerce Application",
+          youtubeId: "fzcfnmVDxwM",
+          thumbnail: "https://img.youtube.com/vi/fzcfnmVDxwM/hqdefault.jpg",
+          tech: ["ReactNative", "CSS", "Figma"],
+          github:
+            "https://github.com/zaid2904/Aarksoft-Order-App-React-Native-App-.git",
+        },
+      ];
+
+      const grid = document.getElementById("projects-grid");
+
+      function createProjectCard(project) {
+        const card = document.createElement("article");
+        card.className = "project-card reveal";
+
+        const watchUrl = `https://www.youtube.com/watch?v=${project.youtubeId}&autoplay=1`;
+        const embedUrl = `https://www.youtube-nocookie.com/embed/${project.youtubeId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+        const techTags = project.tech
+          .map((tag) => `<span class="tag">${tag}</span>`)
+          .join("");
+
+        card.innerHTML = `
+				<div class="project-media" data-preview>
+					<div class="embed-shell" aria-hidden="true"></div>
+					<img src="${project.thumbnail}" alt="${project.title} thumbnail" loading="lazy">
+					<div class="thumb-overlay"></div>
+					<div class="wave-ring"></div>
+					<button class="play-button" type="button" aria-label="Play ${project.title}" data-tooltip="Play preview"></button>
+					<span class="play-hint">Tap to preview</span>
+				</div>
+				<div class="project-body">
+					<div class="project-top">
+						<div>
+							<h3 class="project-title">${project.title}</h3>
+						</div>
+						<a class="external-link" href="${project.github}" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub code" data-tooltip="GitHub Code">
+							<svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+								<path d="M14 3h7v7"></path>
+								<path d="M10 14L21 3"></path>
+								<path d="M21 14v7h-7"></path>
+								<path d="M3 10V3h7"></path>
+							</svg>
+						</a>
+					</div>
+					<div class="tech-tags">${techTags}</div>
+					<div class="project-actions">
+						<a class="btn btn-primary" href="${watchUrl}" target="_blank" rel="noopener noreferrer" data-tooltip="Open YouTube with autoplay">
+							Watch Demo
+							<svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+								<path d="M5 12h14"></path>
+								<path d="M13 5l7 7-7 7"></path>
+							</svg>
+						</a>
+						<a class="btn btn-secondary" href="${project.github}" target="_blank" rel="noopener noreferrer" data-tooltip="View source on GitHub">
+							GitHub Code
+							<svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+								<path d="M14 3h7v7"></path>
+								<path d="M10 14L21 3"></path>
+								<path d="M21 14v7h-7"></path>
+								<path d="M3 10V3h7"></path>
+							</svg>
+						</a>
+					</div>
+				</div>
+			`;
+
+        const previewArea = card.querySelector("[data-preview]");
+        const playButton = card.querySelector(".play-button");
+        const media = card.querySelector(".project-media");
+        const embedShell = card.querySelector(".embed-shell");
+
+        function loadPreview() {
+          if (card.dataset.loaded === "true") {
+            return;
+          }
+
+          card.classList.add("loading");
+          const iframe = document.createElement("iframe");
+          iframe.src = embedUrl;
+          iframe.title = `${project.title} YouTube preview`;
+          iframe.allow =
+            "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+          iframe.allowFullscreen = true;
+
+          iframe.addEventListener("load", () => {
+            card.classList.remove("loading");
+          });
+
+          embedShell.appendChild(iframe);
+          embedShell.classList.add("active");
+          previewArea.classList.add("thumbnail-hidden");
+          card.dataset.loaded = "true";
+        }
+
+        playButton.addEventListener("click", (event) => {
+          event.preventDefault();
+          loadPreview();
+        });
+
+        media.addEventListener("click", () => {
+          loadPreview();
+        });
+
+        return card;
+      }
+
+      projects.forEach((project) => {
+        grid.appendChild(createProjectCard(project));
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.18, rootMargin: "0px 0px -40px 0px" },
+      );
+
+      document.querySelectorAll(".reveal").forEach((card, index) => {
+        card.style.transitionDelay = `${index * 120}ms`;
+        observer.observe(card);
+      });
+
+      document.querySelectorAll("[data-tooltip]").forEach((el) => {
+        el.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            el.click();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
