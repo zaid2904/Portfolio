@@ -5,7 +5,11 @@
 const projects = [
     {
         title: "StackLoop",
-        description: "StackLoop is a developer-focused social media platform designed to connect programmers, creators, and tech enthusiasts in one collaborative community. The platform allows users to create profiles, share posts, showcase projects, share code snippet, interact through likes and comments, follow other developers, and build professional connections. Built using the MERN stack, StackLoop delivers a modern and responsive user experience with secure authentication, real-time interactions, and scalable backend architecture. The project highlights full-stack development expertise including REST APIs, database design, authentication systems, responsive UI/UX, and social platform functionality.",
+        highlights: [
+            "Built a social media platform for developers using the MERN stack with modern UI/UX design.",
+            "Implemented features like user authentication, post sharing, likes, comments, and developer profiles.",
+            "Designed responsive interfaces and scalable backend APIs for seamless community interaction."
+        ],
         tech: ["React.js", "Node.js", "MongoDB", "JWT", "Tailwind CSS"],
         live: "https://stack-loop-developer-social-communi.vercel.app/",
         github: "https://github.com/zaid2904/StackLoop-Developer-Social-Community-Platform",
@@ -20,7 +24,11 @@ const projects = [
     // },
     {
         title: "CourseHub",
-        description: "CourseHub is a modern Learning Management System (LMS) designed to provide an interactive online learning experience for students and instructors. The platform allows users to enroll in courses, access learning materials, track progress, and manage educational content efficiently. It includes features such as user authentication, course management, video/content organization, and responsive dashboards for both students and instructors. Built with modern web technologies, CourseHub demonstrates strong full-stack development skills including frontend design, backend API integration, database management, and scalable application architecture.",
+        highlights: [
+            "Developed a full-stack LMS platform for students and instructors to manage online courses efficiently.",
+            "Built using MERN stack with secure authentication, course management, and progress tracking features.",
+            "Designed responsive dashboards and optimized user experience for interactive online learning."
+        ],
         tech: ["MongoDB", "Express.js", "React.js", "Node.js"],
         live: "https://course-hub-online-course-management.vercel.app/",
         github: "https://github.com/zaid2904/CourseHub-Online-Course-Management-Learning-Platform.git"
@@ -43,9 +51,20 @@ function renderProjects() {
             .map(tech => `<span class="tech-tag">${tech}</span>`)
             .join('');
 
+        // Render highlights as a list or description as fallback
+        let descriptionHTML = '';
+        if (project.highlights && project.highlights.length > 0) {
+            const highlightsList = project.highlights
+                .map(highlight => `<li>${highlight}</li>`)
+                .join('');
+            descriptionHTML = `<ul class="project-highlights">${highlightsList}</ul>`;
+        } else if (project.description) {
+            descriptionHTML = `<p class="project-description">${project.description}</p>`;
+        }
+
         projectCard.innerHTML = `
             <h3 class="project-title">${project.title}</h3>
-            <p class="project-description">${project.description}</p>
+            ${descriptionHTML}
             <div class="project-tech">
                 ${techStack}
             </div>

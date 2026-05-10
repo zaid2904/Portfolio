@@ -503,6 +503,28 @@ ul {
     flex-grow: 1;
 }
 
+.project-highlights {
+    list-style: none;
+    margin: 0 0 1.25rem 0;
+    padding: 0;
+    flex-grow: 1;
+}
+
+.project-highlights li {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.project-highlights li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
 .project-tech {
     display: flex;
     flex-wrap: wrap;
