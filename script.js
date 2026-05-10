@@ -5,7 +5,7 @@
 const projects = [
     {
         title: "StackLoop",
-        description: "Developer community platform with JWT-based authentication, RBAC, CRUD flows, lazy loading, and API optimization for fast load times.",
+        description: "StackLoop is a developer-focused social media platform designed to connect programmers, creators, and tech enthusiasts in one collaborative community. The platform allows users to create profiles, share posts, showcase projects, share code snippet, interact through likes and comments, follow other developers, and build professional connections. Built using the MERN stack, StackLoop delivers a modern and responsive user experience with secure authentication, real-time interactions, and scalable backend architecture. The project highlights full-stack development expertise including REST APIs, database design, authentication systems, responsive UI/UX, and social platform functionality.",
         tech: ["React.js", "Node.js", "MongoDB", "JWT", "Tailwind CSS"],
         live: "https://stack-loop-developer-social-communi.vercel.app/",
         github: "https://github.com/zaid2904/StackLoop-Developer-Social-Community-Platform",
@@ -20,7 +20,7 @@ const projects = [
     // },
     {
         title: "CourseHub",
-        description: "MERN-stack course buying platform with user authentication, course listings, secure checkout, RESTful APIs, and a dynamic React frontend.",
+        description: "CourseHub is a modern Learning Management System (LMS) designed to provide an interactive online learning experience for students and instructors. The platform allows users to enroll in courses, access learning materials, track progress, and manage educational content efficiently. It includes features such as user authentication, course management, video/content organization, and responsive dashboards for both students and instructors. Built with modern web technologies, CourseHub demonstrates strong full-stack development skills including frontend design, backend API integration, database management, and scalable application architecture.",
         tech: ["MongoDB", "Express.js", "React.js", "Node.js"],
         live: "https://course-hub-online-course-management.vercel.app/",
         github: "https://github.com/zaid2904/CourseHub-Online-Course-Management-Learning-Platform.git"
